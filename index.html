@@ -1,0 +1,194 @@
+<html>
+  <head>
+    <title></title>
+    <style>
+      body {
+        /*background-image: url("body.png");*/
+        background-image: url("bg1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, Helvetica, sans-serif;
+      }
+      .container {
+        margin: 0 auto;
+        width: 720px;
+        background-image: url("green4.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 10px 10px 10px 5px #fbff00;
+      }
+      .container h1 {
+        font-size: 2.5rem;
+        color: rgb(255, 190, 38);
+        text-shadow: 3px 3px 5px #ca0202;
+      }
+      .container p {
+        color: white;
+        font-size: 1.2rem;
+      }
+      .btn-primary1:enabled {
+        width: 250px;
+        padding: 1% 6%;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        background-color: rgb(255, 190, 38);
+        color: seagreen;
+        font-weight: bold;
+        font-size: large;
+        transition: 0.3s;
+        margin: 4px 0;
+      }
+      .btn-primary1:enabled:hover {
+        border: 2px solid rgb(255, 190, 38);
+        color: rgb(255, 190, 38);
+        background-color: seagreen;
+        box-shadow: 3px 3px 5px rgb(255, 190, 38);
+      }
+      .btn-primary2:enabled {
+        width: 250px;
+        padding: 1% 6%;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        background-color: rgb(255, 190, 38);
+        color: seagreen;
+        font-weight: bold;
+        font-size: large;
+        transition: 0.3s;
+        margin: 4px 0;
+      }
+      .btn-primary2:enabled:hover {
+        border: 2px solid rgb(108, 255, 120);
+        color: rgb(255, 190, 38);
+        background-color: seagreen;
+        box-shadow: 3px 3px 5px rgb(108, 255, 120);
+      }
+      .btn-primary3:enabled {
+        width: 250px;
+        padding: 1% 6%;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        background-color: rgb(255, 190, 38);
+        color: seagreen;
+        font-weight: bold;
+        font-size: large;
+        transition: 0.3s;
+        margin: 4px 0;
+      }
+      .btn-primary3:enabled:hover {
+        border: 2px solid #ec00b1;
+        color: rgb(255, 190, 38);
+        background-color: seagreen;
+        box-shadow: 3px 3px 5px #eb00b0;
+      }
+      .chips {
+        font-weight: bold;
+        box-shadow: 2px 2px 5px #00cf23;
+        width: 99%;
+      }
+      .btn-primary1:disabled {
+        background-color: #ddd;
+        width: 250;
+        padding: 1% 6%;
+      }
+      .btn-primary1:disabled:hover {
+        background-color: #ddd;
+      }
+      .btn-primary2:disabled {
+        background-color: #ddd;
+        width: 250;
+        padding: 1% 6%;
+      }
+      .btn-primary2:disabled:hover {
+        background-color: #ddd;
+      }
+      .btn-primary3:disabled {
+        background-color: #ddd;
+        width: 250;
+        padding: 1% 6%;
+      }
+      .btn-primary3:disabled:hover {
+        background-color: #ddd;
+      }
+
+      h1 .blackjackgame {
+        display: table-cell;
+        animation: animate 15s linear infinite;
+      }
+      @keyframes animate {
+        20%,
+        80% {
+          color: #004208;
+          filter: blur(10px);
+        }
+        40%,
+        60% {
+          color: rgb(255, 190, 38);
+          filter: blur(0px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <center>
+        <span
+          ><h1>
+            <span class="blackjackgame">Blackjack Game</span
+            ><span style="font-size: 20px; color: #00cf23">Version~1.2</span>
+          </h1></span
+        >
+        <p style="font-weight: bold">
+          You Win! <span style="color: #3aff51">$150</span> (Sum
+          <span style="font-size: 25px; color: #3aff51">=</span> 21)
+        </p>
+        <p style="font-weight: bold">
+          You Lose! <span style="color: #ff4141">$-50</span> (Sum
+          <span style="font-size: 25px; color: #ff4141">></span> 21)
+        </p>
+        <p style="font-weight: bold">
+          You Surrender! <span style="color: rgb(255, 173, 21)">$-5</span> (Sum
+          <span style="font-size: 25px; color: rgb(255, 173, 21)"><</span> 21)
+        </p>
+        <p>Cards:</p>
+        <div id="card-el"></div>
+        <p id="message-el">Want to play a round?</p>
+        <p id="sum-el" style="font-size: 23px; font-weight: bold">Sum:</p>
+        <button id="primary1" onclick="startGame()" class="btn-primary1">
+          START GAME
+        </button>
+        <button id="primary2" onclick="newCard()" class="btn-primary2" disabled>
+          HIT</button
+        ><br />
+        <button
+          id="primary3"
+          onclick="restartGame()"
+          class="btn-primary3"
+          disabled
+        >
+          SURRENDER
+        </button>
+        <div class="chips">
+          <p id="timeplayer-el"></p>
+          <p
+            id="win-el"
+            style="
+              color: greenyellow;
+              text-shadow: 5px 5px 5px rgb(108, 255, 120);
+              font-size: 30px;
+            "
+          ></p>
+          <p id="lose-el" style="color: red; font-size: 20px"></p>
+          <p id="player-el" style="font-size: 25px"></p>
+        </div>
+
+        <img src="me1.png" width="100%" />
+      </center>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
